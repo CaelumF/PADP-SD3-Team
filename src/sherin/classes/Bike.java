@@ -34,7 +34,7 @@ public class Bike {
 	}
 
 	public static void getBike() {
-		Scanner in = new Scanner(System.in);
+		Scanner in = Utils.globScanner;
 		System.out.println("Choose available bikes between 1 to 15");
 		//Print out available bikes
 		for(int i = 0; i < BikeDatabase.availableBikes.size(); i++){

@@ -14,10 +14,10 @@ import java.util.function.Predicate;
  *
  * @param <E> The data type of the user's response. This classes' query() method uses this type parameter.
  */
-class UserQuery<E> {
+public class UserQuery<E> {
     String question;
 
-    UserQuery(String question) {
+    public UserQuery(String question) {
         this.question = question;
     }
 
@@ -25,7 +25,7 @@ class UserQuery<E> {
      * Convenient version of the other query method for when the return type is simply a string and doesn't need
      * converting.
      */
-    E query(Predicate<E> validation, Function<String, String> failMessage) {
+    public E query(Predicate<E> validation, Function<String, String> failMessage) {
         return (E) query(s -> (E) s, validation, failMessage);
     }
 
@@ -40,7 +40,7 @@ class UserQuery<E> {
      * @param failMessage Lambda method if either validation fails or an exception is thrown in conversion or validation
      * @return The user's input as @converter returns it, if it passes validation
      */
-    E query(Function<String, E> converter, Predicate<E> validation, Function<String, String> failMessage) {
+    public E query(Function<String, E> converter, Predicate<E> validation, Function<String, String> failMessage) {
         System.out.println(question);
         String input = scanner.nextLine();
         System.out.println(">" + input);
@@ -62,6 +62,6 @@ class UserQuery<E> {
             }
         }
     }
-    static Scanner scanner = new Scanner(System.in);
+    static Scanner scanner = Utils.globScanner;
 }
 

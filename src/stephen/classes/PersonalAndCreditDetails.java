@@ -1,5 +1,7 @@
 package stephen.classes;
 
+import caelum.classes.Utils;
+
 import java.util.Scanner;
 
 public class PersonalAndCreditDetails {
@@ -21,7 +23,7 @@ public class PersonalAndCreditDetails {
 		int mobileNum;
 		String address;
 		
-		Scanner input = new Scanner(System.in);
+		Scanner input = Utils.globScanner;
 		
 		do {
 		System.out.println("Please enter your age: ");
@@ -72,7 +74,7 @@ public class PersonalAndCreditDetails {
 	
 	public static void getCreditDetails() {
 		
-		Scanner creditCard = new Scanner(System.in);
+		Scanner creditCard = Utils.globScanner;
 		
 		System.out.println("Please enter your 16-digit credit card number:");
 		creditCardNum = creditCard.nextDouble();
