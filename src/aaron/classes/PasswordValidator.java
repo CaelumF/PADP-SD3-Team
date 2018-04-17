@@ -3,6 +3,7 @@ package aaron.classes;
 
 /**
  * @author Aaron
+ * Extracted code from other people's files
  */
 public class PasswordValidator {
     static boolean validate(String challengePassword){
