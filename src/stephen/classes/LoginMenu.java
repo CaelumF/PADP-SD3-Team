@@ -2,12 +2,10 @@ package stephen.classes;
 
 import java.util.Scanner;
 
-public class loginMenu {
+public class LoginMenu {
 
     public static void main(String[] args) {
         // TODO Auto-generated method stub
-
-
         Scanner in = new Scanner(System.in);
 
         System.out.println("Enter 1 to login or 2 to register");
@@ -22,9 +20,9 @@ public class loginMenu {
     }
 
     static void getPersonalDetails() {
-
         //Stephen's method
-
+        PersonalAndCreditDetails.getPersonalDetails();
+        PersonalAndCreditDetails.getCreditDetails();
     }
 
     static void login() {
@@ -38,7 +36,5 @@ public class loginMenu {
 
         //password - 4 digit pin
         String password = new UserQuery<String>("What's your password?").query(s -> true, s -> "");
-
-
     }
 }
