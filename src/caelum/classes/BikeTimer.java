@@ -2,6 +2,9 @@ package caelum.classes;
 
 import java.util.HashMap;
 
+/**
+ * @author caelum
+ */
 public class BikeTimer {
     private static BikeTimer ourInstance = new BikeTimer();
 

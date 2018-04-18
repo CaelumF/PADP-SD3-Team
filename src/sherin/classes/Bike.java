@@ -2,6 +2,7 @@ package sherin.classes;
 
 import aaron.classes.LoginMenu;
 import caelum.classes.BikeManager;
+import caelum.classes.EntryPoint;
 import caelum.classes.UserQuery;
 import caelum.classes.Utils;
 
@@ -52,6 +53,7 @@ public class Bike {
 		//Set chosen bike to not available
 		BikeManager.rentBike(LoginMenu.email, userChoice);
         System.out.println("You have chosen bike " + userChoice  + ". Enjoy your cycle!");
+		EntryPoint.main(new String[]{});
 //		String availableBikes = in.nextLine();
 //           if(userChoice !=1) {
 //        	   availableBikes="between 1 and 15";

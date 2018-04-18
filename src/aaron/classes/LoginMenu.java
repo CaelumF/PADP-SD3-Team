@@ -1,6 +1,8 @@
 package aaron.classes;
 
 import aaron.classes.PasswordChecker;
+import caelum.classes.BikeManager;
+import caelum.classes.EntryPoint;
 import caelum.classes.UserQuery;
 import caelum.classes.Utils;
 import stephen.classes.PersonalAndCreditDetails;
@@ -44,6 +46,11 @@ public class LoginMenu {
 
         //password - 4 digit pin
         String password = new UserQuery<String>("What's your password?").query(s -> true, s -> "");
+        if(email.equalsIgnoreCase("maintenance") && password.equalsIgnoreCase("m13310n")){
+            System.out.println("Displaying Fault log");
+            System.out.println(BikeManager.faults.toString());
+            EntryPoint.main(new String[]{});
+        }
         if(!PasswordChecker.validate(email, password)){
             //Invalid password or email
             System.out.println("Invalid credentials");
