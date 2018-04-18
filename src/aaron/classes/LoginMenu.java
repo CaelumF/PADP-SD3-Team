@@ -1,7 +1,6 @@
 package aaron.classes;
 
 import aaron.classes.PasswordChecker;
-import caelum.classes.ScannerB;
 import caelum.classes.UserQuery;
 import caelum.classes.Utils;
 import stephen.classes.PersonalAndCreditDetails;
@@ -26,7 +25,7 @@ public class LoginMenu {
         }
         //register method
         getPersonalDetails();
-        in.close();
+//        in.close();
     }
 
     static void getPersonalDetails() {

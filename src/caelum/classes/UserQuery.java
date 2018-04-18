@@ -1,11 +1,6 @@
 package caelum.classes;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.text.DecimalFormat;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
 import java.util.Scanner;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -16,6 +11,13 @@ import java.util.function.Predicate;
  */
 public class UserQuery<E> {
     String question;
+    static Scanner scanner = Utils.globScanner;
+    /**
+     * Skips all inputs until it finds one equalling this
+     */
+    static String skipToRegex = "Credit";
+    private boolean skipping = !skipToRegex.equals("");
+
 
     public UserQuery(String question) {
         this.question = question;
@@ -28,7 +30,6 @@ public class UserQuery<E> {
     public E query(Predicate<E> validation, Function<String, String> failMessage) {
         return (E) query(s -> (E) s, validation, failMessage);
     }
-
     /**
      * Queries the user via standard input for data of type <E>
      * As users can only input String data, the @converter function is used to convert user input to <E> per
@@ -41,6 +42,10 @@ public class UserQuery<E> {
      * @return The user's input as @converter returns it, if it passes validation
      */
     public E query(Function<String, E> converter, Predicate<E> validation, Function<String, String> failMessage) {
+//        if(skipping){
+//            if(question.matches(skipToRegex)) skipping = false;
+//            else return E;
+//        }
         System.out.println(question);
         String input = scanner.nextLine();
         System.out.println(">" + input);
@@ -49,8 +54,8 @@ public class UserQuery<E> {
             if (!validation.test(value)) throw new Exception(failMessage.apply(input));
             return value;
         } catch (Exception e) {
-            System.err.println(failMessage.apply(input));
-            System.err.println("What would you like to do? 1 = enter again. 2 = Start again. 3 = exit");
+            System.out.println(failMessage.apply(input));
+            System.out.println("What would you like to do? 1 = enter again. 2 = Start again. 3 = exit");
             while (true) {
                 switch (scanner.nextLine()) {
                     case "1":
@@ -62,6 +67,5 @@ public class UserQuery<E> {
             }
         }
     }
-    static Scanner scanner = Utils.globScanner;
 }
 

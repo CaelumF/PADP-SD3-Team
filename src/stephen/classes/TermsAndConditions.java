@@ -31,8 +31,8 @@ public class TermsAndConditions {
 		if(userChoice == 2) {
 			ReadFromFile();
 		}
-		
-		br.close();
+
+//		br.close();
 		}
 		
 		catch (IOException e) {
