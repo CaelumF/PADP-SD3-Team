@@ -1,9 +1,10 @@
 package stephen.classes;
 
 import caelum.classes.BikeTimer;
+import luke.classes.Receipt;
 
 public class Payment {
-    static double accountBalance = 10;
+    public static double accountBalance = 10;
 
     public static void main(String[] args) {
         //Arbitrary test
@@ -44,8 +45,8 @@ public class Payment {
         System.out.println("€" +cost);
         if(cost <= accountBalance) {
             accountBalance = (accountBalance - cost);
-            System.out.println("Bike rent successful! you have been charged" + cost);
-            //TODO: Printed slip. Luke?
+//            System.out.println("Bike rent successful! you have been charged" + cost);
+            Receipt.printSlip(cost);
         }
         else {
             System.out.println("There were insuficient funds in your account." + "\n" +

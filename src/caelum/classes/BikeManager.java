@@ -1,5 +1,6 @@
 package caelum.classes;
 
+import luke.classes.Receipt;
 import stephen.classes.Payment;
 
 import java.util.ArrayList;

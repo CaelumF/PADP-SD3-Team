@@ -7,21 +7,23 @@ import java.util.Scanner;
 
 public class PersonalAndCreditDetails {
 
+	public static String firstName;
+	public static String surname;
+	public static int age;
+	public static String gender;
+	public static int userGenderChoice;
+	public static String email;
+	public static String pin;
+	public static String mobileNum;
+	public static String address;
+
 	public static void main(String[] args) {
 		getPersonalDetails();
 		getCreditDetails();
 	}
 	public static void getPersonalDetails() {
 		
-		String firstName;
-		String surname;
-		int age;
-		String gender;
-		int userGenderChoice;
-		String email;
-		String pin;
-		String mobileNum;
-		String address;
+
 		
 		Scanner input = Utils.globScanner;
 
