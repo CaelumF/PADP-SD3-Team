@@ -1,5 +1,6 @@
 package stephen.classes;
 
+import aaron.classes.Details;
 import caelum.classes.UserQuery;
 import caelum.classes.Utils;
 
@@ -69,18 +70,19 @@ public class PersonalAndCreditDetails {
         String emailRegex = "^[\\w-\\+]+(\\.[\\w]+)*@[\\w-]+(\\.[\\w]+)*(\\.[a-z]{2,})$";
         email = new UserQuery<String>("Please enter your email: ").query(s -> s.matches(emailRegex), s -> "Bad email");
 
-        pin = new UserQuery<String>("Please enter your 3-digit security code:")
-                .query(s -> s.matches("[0-9]{3}"),
+        pin = new UserQuery<String>("Please enter your 4-digit security code:")
+                .query(s -> s.matches("[0-9]{4}"),
                         s -> s + " is not a valid pin.");
 
-        //Generated from code above by Caelum for Verification
-        mobileNum = new UserQuery<String>("Please enter your mobile number: ").query(s -> s.matches("([0-9]| |\\+)+"
+		//Generated from code above by Caelum for Verification
+		mobileNum = new UserQuery<String>("Please enter your mobile number: ").query(s -> s.matches("([0-9]| |\\+)+"
 		), s-> "Invalid mobile number");
 
-        System.out.println("Please enter your address: ");
-        address = input.nextLine();
-        System.out.println(address);
+		System.out.println("Please enter your address: ");
+		address = input.nextLine();
+		System.out.println(address);
 
+		Details.registerUser(email, pin);
 //		input.close();
 	}
 	
