@@ -12,7 +12,7 @@ public class TermsAndConditions {
 	public static void main(String[] args) {
 		ReadFromFile();
 	}
-	
+//	TODO: Rename to PrintFile
 	static void ReadFromFile() {
 		
 		int userChoice;

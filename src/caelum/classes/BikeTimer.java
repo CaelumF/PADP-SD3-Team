@@ -18,12 +18,13 @@ public class BikeTimer {
     }
 
     /**
-     * Returns time in seconds
+     * Returns time in minutes
      * @param email
-     * @return
+     * @return Bike hire time in minutes
      */
-    public String getTime(String email){
-        long rentMillis = System.currentTimeMillis() - rentMilliMap.getOrDefault(email, (long) 0);
-
+    public int getTime(String email){
+        long rentDurationMillis = System.currentTimeMillis() - rentMilliMap.getOrDefault(email, (long) 0);
+        long seconds = rentDurationMillis / 1000;
+        return (int) (rentDurationMillis / 60);
     }
 }

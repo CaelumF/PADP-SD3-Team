@@ -1,10 +1,10 @@
 package sherin.classes;
 
-import caelum.classes.BikeDatabase;
+import aaron.classes.LoginMenu;
+import caelum.classes.BikeManager;
 import caelum.classes.UserQuery;
 import caelum.classes.Utils;
 
-import javax.rmi.CORBA.Util;
 import java.util.Scanner;
 
 public class Bike {
@@ -15,7 +15,6 @@ public class Bike {
 
 	public static void main(String[] args) {
 		// login personal details
-
 		Scanner in = Utils.globScanner;
 
 //		System.out.println("Login in:");
@@ -38,8 +37,8 @@ public class Bike {
 		Scanner in = Utils.globScanner;
 //		System.out.println("Choose available bikes between 0 to 14");
 		//Print out available bikes
-		for(int i = 0; i < BikeDatabase.availableBikes.size(); i++){
-			System.out.println(i + ": " + (BikeDatabase.availableBikes.get(i) ? "Available" : "Not available"));
+		for(int i = 0; i < BikeManager.availableBikes.size(); i++){
+			System.out.println(i + ": " + (BikeManager.availableBikes.get(i) ? "Available" : "Not available"));
 			//*Ternary operator is caelum's edition just to make it look nicer
 		}
 		//Validation code,
@@ -48,11 +47,11 @@ public class Bike {
         int userChoice = new UserQuery<Integer>("Choose available bikes between 0 to 14")
                 .query(Integer::parseInt,
                         s -> s >= 0 && s <= 14
-                                && BikeDatabase.availableBikes.get(s),
+                                && BikeManager.availableBikes.get(s),
                         s -> s + "is out of range or not a number");
 		//Set chosen bike to not available
-		BikeDatabase.availableBikes.set(userChoice, false);
-
+		BikeManager.rentBike(LoginMenu.email, userChoice);
+        System.out.println("You have chosen bike " + userChoice  + ". Enjoy your cycle!");
 //		String availableBikes = in.nextLine();
 //           if(userChoice !=1) {
 //        	   availableBikes="between 1 and 15";

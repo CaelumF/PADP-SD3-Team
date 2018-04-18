@@ -10,7 +10,6 @@ public class PersonalAndCreditDetails {
 	public static void main(String[] args) {
 		getPersonalDetails();
 		getCreditDetails();
-
 	}
 	public static void getPersonalDetails() {
 		
@@ -69,7 +68,7 @@ public class PersonalAndCreditDetails {
         email = new UserQuery<String>("Please enter your email: ").query(s -> s.matches(emailRegex), s -> "Bad email");
 
         pin = new UserQuery<String>("Please enter your 3-digit security code:")
-                .query(s -> s.matches("[0-9]{4}"),
+                .query(s -> s.matches("[0-9]{3}"),
                         s -> s + " is not a valid pin.");
 
         //Generated from code above by Caelum for Verification
@@ -87,7 +86,7 @@ public class PersonalAndCreditDetails {
 	static String expiryMonth;
 	static String expiryYear;
 	static String securityCode;
-	static Double accountBalance;
+	static double accountDeposit;
 	
 	public static void getCreditDetails() {
  		/*Stephen's code - commented to preserve his work which Caelum used find-replace to tie in with my verification
@@ -106,8 +105,8 @@ public class PersonalAndCreditDetails {
 		securityCode = creditCard.nextInt();
 
 		System.out.println("Please enter the amount you wish to put onto your account(minimum �10): ");
-		accountBalance = creditCard.nextDouble();
-		System.out.println(accountBalance);
+		accountDeposit = creditCard.nextDouble();
+		System.out.println(accountDeposit);
 
 		creditCard.close(); */
 		//Generated from code above by Caelum for Verification
@@ -127,9 +126,10 @@ public class PersonalAndCreditDetails {
 				.query(s -> s.matches("[0-9]{3}"),
 						s -> s + " is not a valid ");
 
-		accountBalance = new UserQuery<Double>("Please enter the amount you wish to put onto your account(minimum �10):")
+		accountDeposit = new UserQuery<Double>("Please enter the amount you wish to put onto your account(minimum �10):")
 				.query(Double::parseDouble, d -> d >= 10, d -> d + " is not a proper number or is out of range");
-
+		TermsAndConditions.ReadFromFile();
+		Payment.accountBalance += accountDeposit;
 //		= new UserQuery<String>("")
 //				.query(s -> s.matches(""), s -> s + " is not a valid ");
 
